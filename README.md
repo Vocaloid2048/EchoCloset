@@ -18,10 +18,17 @@ EchoCloset是一個Discord機器人，幫助用戶記錄每日心情和想買的
 - `/obliterate` & `/obliterate_confirm`: 刪除所有記錄。
 
 ## 安裝
-1. `pip install -r requirements.txt`
-2. 創建`.env`檔案，放`TOKEN=你的Discord機器人TOKEN`
-3. `python echo_closet.py` （第一次運行會下載模型，較慢）
+1. 創建虛擬環境：`python -m venv venv`
+2. 激活虛擬環境：`venv\Scripts\activate` (Windows) 或 `source venv/bin/activate` (macOS/Linux)
+3. 安裝依賴：`pip install -r requirements.txt`
+4. 創建`.env`檔案，放`TOKEN=你的Discord機器人TOKEN`
+5. 運行：`python echo_closet.py`
 
 ## 情感分析
 - 詞庫匹配：手動定義關鍵詞（快樂、悲傷、生氣、焦慮、疲憊、震驚、懼怕、疑惑）。
 - Transformers：多語言情感模型（1-5星映射到正面/負面），使用GPU加速。
+
+## Docker 部署
+1. 建置映像：`docker build -t echo-closet .`
+2. 運行容器：`docker run --env-file .env -v $(pwd)/echo_closet_records.json:/app/echo_closet_records.json echo-closet`
+   - 或使用 `run_docker.sh` 腳本
