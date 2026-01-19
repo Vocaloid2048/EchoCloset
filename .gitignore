@@ -1,0 +1,5 @@
+.env
+echo_closet_records.json
+__pycache__/
+.cache/
+models/

@@ -1,0 +1,5 @@
+discord.py
+jieba
+python-dotenv
+transformers
+torch
